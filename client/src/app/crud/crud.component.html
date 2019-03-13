@@ -1,0 +1,29 @@
+<ng2-slim-loading-bar color="green"></ng2-slim-loading-bar>
+<nav class="navbar navbar-expand-md navbar-dark navbar-custom p-0">
+    <div class="container-fluid">
+        <ul class="navbar-nav navbar-nav mr-auto ">
+            <li class="nav-item">
+                <a routerLink="/tenant" class="navbar-brand nav-link underlineHoverNav" routerLinkActive="active">
+                    Tenants List
+                </a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/tenant/create" class="nav-link navbar-brand underlineHoverNav" routerLinkActive="active">
+                    Create New Tenant
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav float-right">
+            <li class="nav-item">
+                <a  routerLink="/logout" class="navbar-brand .navbar-nav nav-logout btn btn-sm " routerLinkActive="active">
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+<router-outlet></router-outlet>

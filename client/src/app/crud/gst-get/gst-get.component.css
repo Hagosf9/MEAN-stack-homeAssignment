@@ -1,0 +1,18 @@
+
+
+.filter{
+    margin: 1vw !important;
+    padding: 0.5vw 0.5vw 0.5vw 0.5vw !important;
+}
+
+td{
+    padding-left: 5vw !important;
+}
+
+.serchBox{
+background-color: #4eb5f125;
+color: #666B85;
+border-radius: 2em;
+margin-left: 2vw;
+margin-top: 1vw;
+}

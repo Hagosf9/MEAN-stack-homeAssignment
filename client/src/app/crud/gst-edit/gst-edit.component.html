@@ -1,0 +1,65 @@
+<app-crud></app-crud>
+<div class="card col-md-6">
+  <div class="card-body">
+    <form #f="ngForm" [formGroup]="angForm">
+      <div class="form-group">
+        <label class="col-md-4"><strong>Tenant Name</strong></label>
+        <input type="text" class="form-control inputS" formControlName="tenant_name" #tenant_name
+          [(ngModel)]="tenant.tenant_name" />
+      </div>
+      <div
+        *ngIf="angForm.controls['tenant_name'].invalid && (angForm.controls['tenant_name'].dirty || angForm.controls['tenant_name'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['tenant_name'].errors.required">
+          Tenant name is required.
+        </div>
+        <div *ngIf="angForm.controls['tenant_name'].errors.pattern">
+          Only "ABC" letters allowed.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4"><strong>Phone number</strong></label>
+        <input type="text" class="form-control inputS" minlength="9" maxlength="11" formControlName="phone_number"
+          #phone_number [(ngModel)]="tenant.phone_number" />
+      </div>
+      <div
+        *ngIf="angForm.controls['phone_number'].invalid && (angForm.controls['phone_number'].dirty || angForm.controls['phone_number'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['phone_number'].errors.required">
+          Phone number is required.
+        </div>
+        <div *ngIf="angForm.controls['phone_number'].errors.pattern">
+          Phone number isn't in the correct format.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4"><strong>Address</strong></label>
+        <input type="text" class="form-control inputS" formControlName="address" #address [(ngModel)]="tenant.address" />
+      </div>
+      <div
+        *ngIf="angForm.controls['address'].invalid && (angForm.controls['address'].dirty || angForm.controls['address'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['address'].errors.required">
+          Address is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4"><strong>Financial debt</strong></label>
+        <input type="number" class="form-control col-md-4" formControlName="financial_debt" #financial_debt
+          [(ngModel)]="tenant.financial_debt" />
+      </div>
+      <div
+        *ngIf="angForm.controls['financial_debt'].invalid && (angForm.controls['financial_debt'].dirty || angForm.controls['financial_debt'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['financial_debt'].errors.required">
+          Debt value is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="button"
+          (click)="updateTenant(tenant_name.value, phone_number.value, address.value, financial_debt.value)"
+          class="btn btn-primary">Update Tenant</button>
+      </div>
+    </form>
+  </div>
+</div>

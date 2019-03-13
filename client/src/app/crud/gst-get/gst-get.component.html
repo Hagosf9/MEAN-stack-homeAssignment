@@ -1,0 +1,45 @@
+<app-crud></app-crud>
+<input [(ngModel)]="searchText" placeholder="Search by name, phone or address..."
+    class="advancedSearchTextbox serchBox col-md-4">
+<p></p>
+
+<table class="filter">
+    <tr class="text-left">
+        <td class="text-left" style="text-decoration: underline"><strong>Filters</strong></td>
+      </tr>
+    <tr class="text-left">
+        <td class="text-left">Positive debt tenants</td>
+        <td class="text-left"><input type="checkbox" [(ngModel)]="isPositiveDebt"></td>
+      </tr>
+      <tr class="text-left">
+          <td class="text-left">Negative debt tenants</td>
+          <td class="text-left"><input type="checkbox" [(ngModel)]="isNegativeDebt"></td>
+        </tr>
+        <tr class="text-left">
+            <td class="text-left">No debt tenants</td>
+            <td class="text-left"><input type="checkbox" [(ngModel)]="isBalanced"></td>
+          </tr>
+</table>
+    
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr class="text-center">
+            <td class="text-center"><strong>Tenant Name</strong></td>
+            <td class="text-center"><strong>Phone number</strong></td>
+            <td class="text-center"><strong>Address</strong></td>
+            <td class="text-center"><strong>Financial debt</strong></td>
+            <td class="text-center" colspan="2" style="padding-right:4vw;"><strong>Actions</strong></td>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let tenant of filteredTenants" class="text-center">
+            <td>{{ tenant.tenant_name }}</td>
+            <td>{{ tenant.phone_number }}</td>
+            <td>{{ tenant.address }}</td>
+            <td>{{ tenant.financial_debt }}</td>
+            <td><a [routerLink]="['/edit', tenant._id]" class="btn buttonEdit underlineHoverNav float-right">Edit</a></td>
+            <td><a (click)="deleteTenant(tenant,tenant._id); " class="btn buttonDelete underlineHoverNav float-left">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
